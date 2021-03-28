@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 //services Api
-import pixabayApi from './components/services/pixabayApi';
+import pixabayApi from './services/pixabayApi';
 
 //import components
 import Section from './components/Section';
@@ -68,7 +68,7 @@ class App extends Component {
     const { serchQuery, currentPage } = this.state;
     const options = { serchQuery, currentPage }; //передаем параметры в объекте настроек
 
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true }); //показываем спиннер пока идет запрос
 
     pixabayApi
       .fetchImagesfromApi(options)
@@ -99,7 +99,7 @@ class App extends Component {
       images: [], //записываем пустой массив для отрисовки новых картинок по новому запросу
       currentPage: 1, //сбрасываем currentPage в начальное состояние при новом запросе
       hasError: false, //сбрасываем error в начальное состояние при новом запросе
-      selectedImageModal: '',
+      selectedImageModal: '', //сбрасываем url картинки для модалки
     });
   };
 
@@ -140,7 +140,7 @@ class App extends Component {
           </Container>
         </Searchbar>
         <Section>
-          <Container>
+          <Container className={styles.App}>
             <div className={styles.App}>
               <ImageGallery
                 images={images}

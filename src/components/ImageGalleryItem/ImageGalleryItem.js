@@ -1,12 +1,12 @@
 import styles from './ImageGalleryItem.module.css';
 
-const ImageGalleryItem = ({ src, alt, selectedImageModal, onClick }) => (
-  <li className={styles.imageGalleryItemImage} onClick={onClick}>
+const ImageGalleryItem = ({ src, alt, onClick }) => (
+  <li className={styles.imageGalleryItemImage}>
     <img
       src={src}
       alt={alt}
-      data-source={selectedImageModal}
       className={styles.imageGalleryItemImage}
+      onClick={onClick}
     />
   </li>
 );
